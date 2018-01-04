@@ -65,15 +65,23 @@ Inputs {.sidebar}
 -----------------------------------------------------------------------
 
 ```{r}
+filter_checkbox(id="TouchPoint", label = "Touch Point", sd, group=~TouchPoint, columns = 1)
 filter_slider(id="NumberofRespondents", label="Number of Respondents", sd, step=25, column=~NumberofRespondents)
 filter_slider(id="RespondentUsabilityScore", label="Respondent Usability Score", sd, step=0.1, column=~RespondentUsabilityScore)
 ```
 
 ---
 
-**Credits:**
+**Instructions:**
 
-The following packages were used: [flexdashboard](http://rmarkdown.rstudio.com/flexdashboard/),  [d3scatter](https://github.com/jcheng5/d3scatter), [DT](https://cran.r-project.org/web/packages/DT/index.html), [ggplot2](http://ggplot2.org/), [ggrepel](https://cran.r-project.org/web/packages/ggrepel/index.html), [crosstalk](https://rstudio.github.io/crosstalk/index.html)
+Use the above filters to change what data is highlighted in the graph and the data table. 
+
+You can perform a rectangular selection on the graph to view the corresponding rows in the data table. 
+
+A static version of this graph can be viewed on the [Static Graph] tab in the navigation bar at the top of this page.
+
+---
+
 
 Row
 -------------------------------------
@@ -92,7 +100,7 @@ d3scatter(sd, ~RespondentUsabilityScore, ~NumberofRespondents, width="100%",
 
 ```{r}
 library(DT)
-datatable(sd, rownames = FALSE, style="bootstrap", extensions=c("Buttons"), filter = 'top',
+datatable(sd, rownames = FALSE, style="bootstrap", extensions=c("Buttons"),
           colnames=c("Touch Point", "Function", "Respondent Usability Score", "Number of Respondents"),
           options = list(searchHighlight = TRUE, autoWidth = TRUE,
                          columnDefs = list(list(className = 'dt-left', targets = c(0,1)),
@@ -128,6 +136,10 @@ Row
 -------------------------------------
 
 ###
+
+**Credits:**
+
+The following packages were used: [flexdashboard](http://rmarkdown.rstudio.com/flexdashboard/),  [d3scatter](https://github.com/jcheng5/d3scatter), [DT](https://cran.r-project.org/web/packages/DT/index.html), [ggplot2](http://ggplot2.org/), [ggrepel](https://cran.r-project.org/web/packages/ggrepel/index.html), [crosstalk](https://rstudio.github.io/crosstalk/index.html)
 
 **References:**
 
