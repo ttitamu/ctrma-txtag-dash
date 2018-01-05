@@ -13,7 +13,7 @@ output:
 ```{r setup, include=FALSE}
 # Load required packages
 if (!require("pacman")) install.packages("pacman")
-pacman::p_load(ggplot2, ggrepel, crosstalk, flexdashboard)
+pacman::p_load(ggplot2, plotly, crosstalk, flexdashboard)
 pacman::p_load_gh("jcheng5/d3scatter")
 devtools::install_github('rstudio/DT')
 library(DT)
@@ -40,18 +40,14 @@ setwd(wd)
 
 # Import the data file
 datapts <- read.csv(paste0(wd,"ChrisNeedsHelp.csv"), stringsAsFactors = F)
+
 # Rename columns
 names(datapts) <- gsub("\\.","",colnames(datapts))
-
 datapts <- datapts[,c(1:2,4:5)]
 
-# Create copy
-datapts_copy <- read.csv(paste0(wd,"ChrisNeedsHelp.csv"), stringsAsFactors = F)
-names(datapts_copy) <- gsub("\\."," ",colnames(datapts_copy))
-
 # Get median values for x & y columns
-xmed <- median(datapts_copy$`Respondent Usability Score`)
-ymed <- median(datapts_copy$`Number of Respondents`)
+xmed <- median(datapts$RespondentUsabilityScore)
+ymed <- median(datapts$NumberofRespondents)
 
 # Define shared data for use with crosstalk package
 sd <- SharedData$new(datapts)
@@ -100,12 +96,12 @@ d3scatter(sd, ~RespondentUsabilityScore, ~NumberofRespondents, width="100%",
 
 ```{r}
 library(DT)
-datatable(sd, rownames = FALSE, style="bootstrap", extensions=c("Buttons"),
+datatable(sd, rownames = FALSE, extensions=c("Buttons"),
           colnames=c("Touch Point", "Function", "Respondent Usability Score", "Number of Respondents"),
           options = list(searchHighlight = TRUE, autoWidth = TRUE,
                          columnDefs = list(list(className = 'dt-left', targets = c(0,1)),
                                            list(className = 'dt-center', targets = c(2,3))),
-                         dom = "Bfrti",
+                         dom = "Bfrt",
                          buttons = list("colvis",
                                         list(extend = "collection",
                                              buttons = list(
@@ -127,7 +123,7 @@ Row
 
 ###
 
-![Plot](Plot-v4-purple.png)
+![Plot](Plot-v5-purple.png)
 
 References
 =========================================================
