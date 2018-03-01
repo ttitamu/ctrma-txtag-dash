@@ -13,7 +13,7 @@ output:
 ```{r setup, include=FALSE}
 # Load required packages
 if (!require("pacman")) install.packages("pacman")
-pacman::p_load(ggplot2, plotly, crosstalk, flexdashboard)
+pacman::p_load(ggplot2, crosstalk, flexdashboard)
 pacman::p_load_gh("jcheng5/d3scatter")
 devtools::install_github('rstudio/DT')
 library(DT)
@@ -70,11 +70,11 @@ filter_slider(id="RespondentUsabilityScore", label="Respondent Usability Score",
 
 **Instructions:**
 
-Use the above filters to change what data is highlighted in the graph and the data table. 
+Use the above filters to change what data is highlighted in the plot and the data table. 
 
 You can perform a rectangular selection on the graph to view the corresponding rows in the data table. 
 
-A static version of this graph can be viewed on the [Static Graph] tab in the navigation bar at the top of this page.
+A static version of this plot can be viewed on the [Static Plot] tab in the navigation bar at the top of this page.
 
 ---
 
@@ -115,7 +115,7 @@ datatable(sd, rownames = FALSE, extensions=c("Buttons"),
 ```
 
 
-Static Graph
+Static Plot
 =========================================================
 
 Row
@@ -123,7 +123,7 @@ Row
 
 ###
 
-![Plot](Plot-v5-purple.png)
+![Static Plot](Plot-011618-v2-blue.png)
 
 References
 =========================================================
@@ -136,6 +136,11 @@ Row
 **Credits:**
 
 The following packages were used: [flexdashboard](http://rmarkdown.rstudio.com/flexdashboard/),  [d3scatter](https://github.com/jcheng5/d3scatter), [DT](https://cran.r-project.org/web/packages/DT/index.html), [ggplot2](http://ggplot2.org/), [ggrepel](https://cran.r-project.org/web/packages/ggrepel/index.html), [crosstalk](https://rstudio.github.io/crosstalk/index.html)
+
+This website was made by Michelle Plunkett, a Texas A&M Transportation Institute graduate student 
+worker in the <a href="https://groups.tti.tamu.edu/pep/" target="_blank">Public Engagement Planning Program</a>.
+Michelle can be reached at <a href="mailto:m-plunkett@tti.tamu.edu">m-plunkett@tti.tamu.edu</a> if 
+you have any questions about this website. 
 
 **References:**
 
