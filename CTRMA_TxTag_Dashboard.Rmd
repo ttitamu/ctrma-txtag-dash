@@ -65,7 +65,7 @@ Inputs {.sidebar}
 
 ```{r}
 filter_checkbox(id="TouchPoint", label = "Touch Point", sd, group=~TouchPoint, columns = 1)
-filter_slider(id="NumberofRespondents", label="Number of Respondents", sd, step=25, column=~NumberofRespondents)
+filter_slider(id="NumberofRespondents", label="Number of Responses", sd, step=25, column=~NumberofRespondents)
 filter_slider(id="RespondentUsabilityScore", label="Respondent Usability Score", sd, step=0.1, column=~RespondentUsabilityScore)
 ```
 
